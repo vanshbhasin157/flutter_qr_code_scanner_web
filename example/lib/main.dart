@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 
 class Page extends StatefulWidget {
   const Page({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

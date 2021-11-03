@@ -2,13 +2,13 @@ import 'package:flutter/widgets.dart';
 
 class QrCodeCameraWebImpl extends StatefulWidget {
   final void Function(String qrValue) qrCodeCallback;
-  final Widget child;
-  final BoxFit fit;
-  final Widget Function(BuildContext context, Object error) onError;
+  final Widget? child;
+  final BoxFit? fit;
+  final Widget Function(BuildContext context, Object error)? onError;
 
   QrCodeCameraWebImpl({
-    Key key,
-    @required this.qrCodeCallback,
+    Key? key,
+    required this.qrCodeCallback,
     this.child,
     this.fit = BoxFit.cover,
     this.onError,
@@ -18,7 +18,7 @@ class QrCodeCameraWebImpl extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     throw FittedBox(
-      fit: this.fit,
+      fit: this.fit!,
       child: Container(
         child: Text('it is not in web environment'),
       ),
