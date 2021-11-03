@@ -5,9 +5,8 @@
 // - https://kevinwilliams.dev/blog/taking-photos-with-flutter-web
 // - https://github.com/cozmo/jsQR
 import 'dart:async';
-// ignore: avoid_web_libraries_in_flutter
+
 import 'dart:html' as html;
-// ignore: avoid_web_libraries_in_flutter
 import 'dart:js' as js;
 import 'dart:ui' as ui;
 
@@ -33,7 +32,7 @@ class QrCodeCameraWebImpl extends StatefulWidget {
     this.child,
     this.fit = BoxFit.cover,
     this.onError,
-  })  : super(key: key);
+  }) : super(key: key);
 
   @override
   _QrCodeCameraWebImplState createState() => _QrCodeCameraWebImplState();
@@ -85,7 +84,7 @@ class _QrCodeCameraWebImplState extends State<QrCodeCameraWebImpl> {
       _video.play();
     });
     _canvasElement = html.CanvasElement();
-    _canvas = _canvasElement.getContext("2d") as html.CanvasRenderingContext2D;
+    _canvas = _canvasElement.context2D;
     Future.delayed(Duration(milliseconds: 20), () {
       tick();
     });
@@ -93,7 +92,7 @@ class _QrCodeCameraWebImplState extends State<QrCodeCameraWebImpl> {
 
   bool _disposed = false;
   tick() {
-    if(_disposed) {
+    if (_disposed) {
       return;
     }
 
@@ -143,7 +142,7 @@ class _QrCodeCameraWebImplState extends State<QrCodeCameraWebImpl> {
     _video.pause();
     Future.delayed(Duration(milliseconds: 1), () {
       try {
-        _stream?.getTracks()?.forEach((mt) {
+        _stream.getTracks().forEach((mt) {
           mt.stop();
         });
       } catch (e) {
