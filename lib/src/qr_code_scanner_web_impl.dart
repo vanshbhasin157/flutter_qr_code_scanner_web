@@ -62,8 +62,8 @@ class _QrCodeCameraWebImplState extends State<QrCodeCameraWebImpl> {
     // Create a video element which will be provided with stream source
     _video = html.VideoElement();
     // Register an webcam
-    // ui.platformViewRegistry.registerViewFactory(
-    //     'webcamVideoElement$_uniqueKey', (int viewId) => _video);
+    ui.platformViewRegistry.registerViewFactory(
+        'webcamVideoElement$_uniqueKey', (int viewId) => _video);
     // Create video widget
     _videoWidget = HtmlElementView(
         key: UniqueKey(), viewType: 'webcamVideoElement$_uniqueKey');
